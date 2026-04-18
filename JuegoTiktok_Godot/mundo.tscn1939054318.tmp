@@ -1,0 +1,516 @@
+[gd_scene format=3 uid="uid://b5ayj1lo6wvf2"]
+
+[ext_resource type="Script" uid="uid://cpu5viufvgc1v" path="res://mundo.gd" id="1_6ba58"]
+[ext_resource type="Texture2D" uid="uid://b43r2vyhyb7o4" path="res://imagenes/menu.png" id="3_2hh7m"]
+[ext_resource type="Script" uid="uid://dcn1rwyn6yo48" path="res://pared_abajo.gd" id="3_fw4w5"]
+[ext_resource type="Script" uid="uid://cgruc4mdig7bk" path="res://pared_izquierda.gd" id="3_otwa2"]
+[ext_resource type="AudioStream" uid="uid://drxvm232ueios" path="res://audios/Musica_PantallaInicio.mp3" id="3_pfhxm"]
+[ext_resource type="Script" uid="uid://bkueqiyq6mty5" path="res://pared_derecha.gd" id="4_aou4a"]
+[ext_resource type="Texture2D" uid="uid://bl5q5lxor2w37" path="res://imagenes/fondo_pantallainicio.jpg" id="4_t8jxu"]
+[ext_resource type="Script" uid="uid://carov5pfa6f6n" path="res://pared_arribas.gd" id="5_0oi55"]
+[ext_resource type="Texture2D" uid="uid://b2jeutuqk3wy1" path="res://space-planet-science-night-generated-by-ai.jpg" id="6_5ckkb"]
+[ext_resource type="Texture2D" uid="uid://up0812whv1uf" path="res://imagenes/icono-de-trofeo.png" id="8_0oi55"]
+[ext_resource type="Texture2D" uid="uid://cdx1yr4vx8kls" path="res://imagenes/cinta.png" id="9_57gmc"]
+[ext_resource type="Texture2D" uid="uid://c7uqv6ck86gb5" path="res://imagenes/barra_gris.png" id="10_0crsg"]
+[ext_resource type="Texture2D" uid="uid://ghkrs080sgo5" path="res://imagenes/barra_roja.png" id="11_5g5eo"]
+[ext_resource type="Script" uid="uid://cawn4tiixnile" path="res://v_box_container.gd" id="12_5g5eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oi55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hh7m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8jxu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfhxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pij3u"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfhxm"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0oi55"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Mundo" type="Node2D" unique_id=1490623062]
+script = ExtResource("1_6ba58")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=782058700]
+layer = -1
+
+[node name="InterfazPrincipal" type="Control" parent="CanvasLayer" unique_id=1450055256]
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paredes" type="Node2D" parent="CanvasLayer/InterfazPrincipal" unique_id=1387935526]
+z_index = -1
+
+[node name="Pared_izquierda" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=349676027]
+z_index = 5
+script = ExtResource("3_otwa2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_izquierda" unique_id=479183755]
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_izquierda" unique_id=1119798839]
+offset_right = 30.0
+offset_bottom = 648.0
+
+[node name="Pared_Derecha" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=2089979665]
+z_index = 5
+script = ExtResource("4_aou4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_Derecha" unique_id=1058990333]
+shape = SubResource("RectangleShape2D_fw4w5")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_Derecha" unique_id=1796365071]
+offset_left = 1122.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Pared_arribas" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=1176808722]
+z_index = 5
+script = ExtResource("5_0oi55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_arribas" unique_id=1182801527]
+shape = SubResource("RectangleShape2D_lgngo")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_arribas" unique_id=393209566]
+custom_minimum_size = Vector2(600, 15)
+offset_right = 1152.0
+offset_bottom = 30.0
+
+[node name="Pared_abajo" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=706452500]
+z_index = 5
+script = ExtResource("3_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_abajo" unique_id=2137599995]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_0oi55")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_abajo" unique_id=705545450]
+offset_top = 618.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ContenedorPelotas" type="Node2D" parent="CanvasLayer/InterfazPrincipal" unique_id=2097291775]
+z_index = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InterfazPrincipal" unique_id=1301973604]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5ckkb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="CanvasLayer/InterfazPrincipal" unique_id=1458461914]
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0034722222
+anchor_top = -0.044753086
+anchor_right = -0.0034722222
+anchor_bottom = -0.044753086
+offset_left = 1087.0
+offset_top = 33.0
+offset_right = 1119.0
+offset_bottom = 65.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2hh7m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t8jxu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pfhxm")
+icon = ExtResource("3_2hh7m")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuPartida" type="Control" parent="CanvasLayer/InterfazPrincipal" unique_id=307198801]
+visible = false
+z_index = 11
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -188.0
+offset_bottom = 204.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/InterfazPrincipal/MenuPartida" unique_id=3173603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pij3u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/InterfazPrincipal/MenuPartida/Panel" unique_id=1100965748]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -68.0
+offset_right = 59.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Ajustes" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer" unique_id=89709881]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Ajustes"
+
+[node name="Button_NuevaPartida" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer" unique_id=483205207]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Nueva Partida"
+
+[node name="Button_AdminAbuse" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer" unique_id=2119901569]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Admin Abuse
+"
+
+[node name="Button_RegresarInicio" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer" unique_id=292011521]
+layout_mode = 2
+text = "Volver Inicio"
+
+[node name="Button_SalirMenu" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer" unique_id=1371110800]
+layout_mode = 2
+text = "Cerrar Menu"
+
+[node name="AdminAbuse" type="Control" parent="CanvasLayer/InterfazPrincipal" unique_id=1579074957]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -237.0
+offset_bottom = 330.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/InterfazPrincipal/AdminAbuse" unique_id=2039560936]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pfhxm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel" unique_id=1292822396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -50.5
+offset_right = 53.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Daño" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=1785117556]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Daño X2"
+
+[node name="Button_Velocidad" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=2031606277]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Velocidad x2"
+
+[node name="Button_Escudo" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=1390237180]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Escudo"
+
+[node name="Button_Volver" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=415090926]
+layout_mode = 2
+text = "Volver
+"
+
+[node name="MenuTops" type="Control" parent="CanvasLayer/InterfazPrincipal" unique_id=196559345]
+z_index = 5
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Button_TopGlobal" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuTops" unique_id=1813736884]
+layout_mode = 0
+offset_left = 74.0
+offset_top = -2.0
+offset_right = 119.0
+offset_bottom = 43.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("8_0oi55")
+flat = true
+expand_icon = true
+
+[node name="Button_TopActual" type="Button" parent="CanvasLayer/InterfazPrincipal/MenuTops" unique_id=644286432]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -3.0
+offset_right = 77.0
+offset_bottom = 47.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("9_57gmc")
+flat = true
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/InterfazPrincipal" unique_id=31739825]
+visible = false
+z_index = 10
+layout_mode = 1
+offset_left = 37.0
+offset_top = 44.0
+offset_right = 337.0
+offset_bottom = 344.0
+horizontal_scroll_mode = 0
+
+[node name="ListaLeaderboard" type="VBoxContainer" parent="CanvasLayer/InterfazPrincipal/ScrollContainer" unique_id=1687289364]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Guia" type="HBoxContainer" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard" unique_id=712572878]
+layout_mode = 2
+
+[node name="Puesto" type="Label" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard/Guia" unique_id=2046165992]
+layout_mode = 2
+text = "Puesto"
+
+[node name="Foto" type="Label" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard/Guia" unique_id=585407558]
+layout_mode = 2
+text = "Foto"
+
+[node name="Nombre" type="Label" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard/Guia" unique_id=841992695]
+layout_mode = 2
+text = "Nombre"
+
+[node name="Kills" type="Label" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard/Guia" unique_id=1421082847]
+layout_mode = 2
+text = "Kills"
+
+[node name="Likes" type="Label" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard/Guia" unique_id=1838771716]
+layout_mode = 2
+text = "Likes"
+
+[node name="Coins" type="Label" parent="CanvasLayer/InterfazPrincipal/ScrollContainer/ListaLeaderboard/Guia" unique_id=210957182]
+layout_mode = 2
+text = "Coins"
+
+[node name="Label_Tiempo" type="Label" parent="CanvasLayer/InterfazPrincipal" unique_id=875754753]
+z_index = 6
+layout_mode = 0
+offset_left = 450.0
+offset_top = 32.0
+offset_right = 490.0
+offset_bottom = 55.0
+
+[node name="Control" type="Control" parent="CanvasLayer/InterfazPrincipal" unique_id=573116024]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/InterfazPrincipal/Control" unique_id=1032366845]
+z_index = 5
+layout_mode = 0
+offset_left = 309.0
+offset_top = 23.0
+offset_right = 609.0
+offset_bottom = 63.0
+fill_mode = 1
+texture_under = ExtResource("11_5g5eo")
+texture_progress = ExtResource("10_0crsg")
+
+[node name="Ganador_Partida" type="Control" parent="CanvasLayer/InterfazPrincipal" unique_id=171248112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/InterfazPrincipal/Ganador_Partida" unique_id=2068732790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_5g5eo")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/InterfazPrincipal/Ganador_Partida/VBoxContainer" unique_id=1474552424]
+layout_mode = 2
+
+[node name="PantallaInicio" type="Control" parent="CanvasLayer" unique_id=470824005]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PantallaInicio" unique_id=51847044]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_t8jxu")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PantallaInicio/TextureRect" unique_id=1017288424]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -50.5
+offset_right = 58.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Play" type="Button" parent="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer" unique_id=1405609883]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "PLAY"
+
+[node name="Button_Configuracion" type="Button" parent="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer" unique_id=2014580517]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Configuración
+"
+
+[node name="Button_Salir" type="Button" parent="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer" unique_id=1214792403]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Salir"
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="CanvasLayer/PantallaInicio" unique_id=648961191]
+stream = ExtResource("3_pfhxm")
+
+[node name="Menu_EstablecerConexion" type="Control" parent="CanvasLayer/PantallaInicio" unique_id=264364038]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PantallaInicio/Menu_EstablecerConexion" unique_id=1337212297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -43.5
+offset_right = 142.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0oi55")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel" unique_id=1443051471]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -39.0
+offset_right = 82.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConexionUsuario" type="LineEdit" parent="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer" unique_id=31168624]
+layout_mode = 2
+placeholder_text = "localhost:3001"
+alignment = 1
+
+[node name="Button_EstablecerConexion" type="Button" parent="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer" unique_id=1472063491]
+layout_mode = 2
+text = "Establecer Conexión"
+
+[node name="Button_VolverInicio" type="Button" parent="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer" unique_id=440102730]
+layout_mode = 2
+text = "Volver Inicio"
+
+[node name="BannerKills" type="CanvasLayer" parent="." unique_id=171210484]
+
+[node name="KillFeed" type="VBoxContainer" parent="BannerKills" unique_id=1094315863]
+z_index = 15
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_NuevaPartida" to="." method="_on_button_nueva_partida_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_AdminAbuse" to="." method="_on_button_admin_abuse_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_RegresarInicio" to="." method="_on_button_regresar_inicio_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_SalirMenu" to="." method="_on_button_salir_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer/Button_Volver" to="." method="_on_button_volver_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuTops/Button_TopGlobal" to="." method="_on_button_top_global_pressed"]
+[connection signal="pressed" from="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer/Button_Configuracion" to="." method="_on_button_configuracion_pressed"]
+[connection signal="pressed" from="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer/Button_Salir" to="." method="_on_button_salir_pressed"]
+[connection signal="finished" from="CanvasLayer/PantallaInicio/MusicaFondo" to="." method="_on_musica_fondo_finished"]
+[connection signal="pressed" from="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer/Button_EstablecerConexion" to="." method="_on_button_establecer_conexion_pressed"]
+[connection signal="pressed" from="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer/Button_VolverInicio" to="." method="_on_button_volver_inicio_pressed"]

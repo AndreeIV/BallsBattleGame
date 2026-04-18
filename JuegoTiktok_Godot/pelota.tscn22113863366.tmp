@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://debuwrkvelev4"]
+
+[ext_resource type="Script" uid="uid://lvr81p4mu8y8" path="res://pelota.gd" id="1_sha3n"]
+[ext_resource type="Shader" uid="uid://uj45b6xwq53k" path="res://pelota.gdshader" id="2_0okw3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0okw3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7cd6"]
+shader = ExtResource("2_0okw3")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxcdw"]
+radius = 50.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0okw3"]
+font_size = 20
+
+[node name="Pelota" type="RigidBody2D" unique_id=1976850353]
+z_index = 1
+physics_material_override = SubResource("PhysicsMaterial_0okw3")
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_sha3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=170718237]
+material = SubResource("ShaderMaterial_p7cd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888021617]
+shape = SubResource("CircleShape2D_jxcdw")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=607334010]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1355899089]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="." unique_id=1896184493]
+offset_left = -33.0
+offset_top = 10.0
+offset_right = 34.0
+offset_bottom = 38.0
+text = "♥ 100"
+label_settings = SubResource("LabelSettings_0okw3")
+horizontal_alignment = 1

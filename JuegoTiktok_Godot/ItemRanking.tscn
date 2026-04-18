@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://uovp8t5paj6m"]
+
+[ext_resource type="Script" uid="uid://i5gs11lb5h47" path="res://item_ranking.gd" id="1_qvuwk"]
+[ext_resource type="Shader" uid="uid://bestxlvrdptes" path="res://ItemRanking.gdshader" id="2_hyfbx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q8kf7"]
+shader = ExtResource("2_hyfbx")
+
+[node name="Control" type="HBoxContainer" unique_id=287393974]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvuwk")
+
+[node name="Puesto" type="Label" parent="." unique_id=1198114848]
+layout_mode = 2
+
+[node name="Foto" type="TextureRect" parent="." unique_id=1363526089]
+material = SubResource("ShaderMaterial_q8kf7")
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Nombre" type="Label" parent="." unique_id=1996866741]
+layout_mode = 2
+
+[node name="Kills" type="Label" parent="." unique_id=839110333]
+layout_mode = 2
+
+[node name="Likes" type="Label" parent="." unique_id=165383470]
+layout_mode = 2
+
+[node name="Coins" type="Label" parent="." unique_id=1249733736]
+layout_mode = 2

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://debuwrkvelev4"]
+
+[ext_resource type="Script" uid="uid://lvr81p4mu8y8" path="res://pelota.gd" id="1_sha3n"]
+[ext_resource type="Shader" uid="uid://uj45b6xwq53k" path="res://pelota.gdshader" id="2_0okw3"]
+[ext_resource type="AudioStream" uid="uid://dl4lsc6l53upw" path="res://audio_muerte.mp3" id="3_p7cd6"]
+[ext_resource type="AudioStream" uid="uid://ciby3dsty1fid" path="res://audios/freesound_community-good-6081.mp3" id="4_mwsff"]
+[ext_resource type="Texture2D" uid="uid://c0ftfn7113c6n" path="res://imagenes/like-red.svg" id="5_dvj37"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0okw3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7cd6"]
+shader = ExtResource("2_0okw3")
+shader_parameter/brillo = 0.6000000285
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxcdw"]
+radius = 50.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0okw3"]
+font_size = 20
+shadow_size = 9
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
+
+[node name="Pelota" type="RigidBody2D" unique_id=1976850353]
+modulate = Color(0.019234488, 0.019234488, 0.019234488, 1)
+self_modulate = Color(0.735357, 0.735357, 0.735357, 1)
+z_index = 4
+physics_material_override = SubResource("PhysicsMaterial_0okw3")
+gravity_scale = 0.0
+sleeping = true
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 5
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_sha3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=170718237]
+modulate = Color(7.659314e-06, 7.659314e-06, 7.659314e-06, 1)
+self_modulate = Color(1.1488971e-05, 1.1488971e-05, 1.1488971e-05, 1)
+z_index = 5
+material = SubResource("ShaderMaterial_p7cd6")
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888021617]
+shape = SubResource("CircleShape2D_jxcdw")
+
+[node name="Label" type="Label" parent="." unique_id=1896184493]
+z_index = 5
+offset_left = -33.0
+offset_top = 10.0
+offset_right = 34.0
+offset_bottom = 38.0
+text = "♥ 100"
+label_settings = SubResource("LabelSettings_0okw3")
+horizontal_alignment = 1
+
+[node name="NombreUsuario" type="Label" parent="." unique_id=1895001126]
+visible = false
+z_index = 10
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 21.0
+offset_bottom = 7.0
+horizontal_alignment = 1
+
+[node name="AudioMuerte" type="AudioStreamPlayer2D" parent="." unique_id=1431447954]
+stream = ExtResource("3_p7cd6")
+
+[node name="AudioPoderes" type="AudioStreamPlayer2D" parent="." unique_id=2047348395]
+stream = ExtResource("4_mwsff")
+
+[node name="LikesRecibidos" type="CPUParticles2D" parent="." unique_id=792566224]
+emitting = false
+amount = 6
+texture = ExtResource("5_dvj37")
+one_shot = true
+local_coords = true
+gravity = Vector2(0, -980)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
