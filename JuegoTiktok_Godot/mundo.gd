@@ -29,8 +29,8 @@ var tiempo_inicial = 600.0
 var tiempo_restante = 600.0
 var tiempo_visual = 600.0
 var temporizador_activo = false
-@onready var label_tiempo = $CanvasLayer/InterfazPrincipal/Label_Tiempo
-@onready var barra_tiempo = $CanvasLayer/InterfazPrincipal/Control/TextureProgressBar
+@onready var label_tiempo = $CanvasLayer/InterfazPrincipal/Control_Temporizador/Label_Tiempo
+@onready var barra_tiempo = $CanvasLayer/InterfazPrincipal/Control_Temporizador/TextureProgressBar
 
 
 
@@ -383,9 +383,14 @@ func Crear_Bot():
 	
 	bot.pelotaMuerta.connect(_on_registrar_kill)
 	bot.apply_central_impulse(fuerza_inicial)
-		
+	
 	ContenedorPelotas.add_child(bot)
+	
+	var url_imagen = "https://robohash.org/" + str(Indice_NombreBot)
+	
+	bot.AgregarFotoBots(url_imagen)
 	print('Se agregó al mundo ' + bot.name)
+	
 	Indice_NombreBot += 1
 	
 
@@ -539,14 +544,25 @@ func _on_button_nueva_partida_pressed() -> void:
 	pass # Replace with function body.
 
 
-func _on_button_top_global_pressed() -> void:
-	cargar_datos()
-	actualizar_leaderboard()
-	$CanvasLayer/InterfazPrincipal/ScrollContainer.visible = !$CanvasLayer/InterfazPrincipal/ScrollContainer.visible
-	
-	pass # Replace with function body.
 
 
 func _on_button_crear_bot_pressed() -> void:
 	Crear_Bot()
 	pass # Replace with function body.
+
+
+func _on_button_top_global_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		cargar_datos()
+		actualizar_leaderboard()
+		$CanvasLayer/InterfazPrincipal/ScrollContainer.visible = true
+		print("activado")
+	else:
+		$CanvasLayer/InterfazPrincipal/ScrollContainer.visible = false
+		print("desactivado")
+
+func _on_button_menu_burger_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$CanvasLayer/InterfazPrincipal/MenuPartida.visible = true
+	else:
+		$CanvasLayer/InterfazPrincipal/MenuPartida.visible = false

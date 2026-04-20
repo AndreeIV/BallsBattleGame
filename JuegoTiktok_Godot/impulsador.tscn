@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://6n0sdvdm4ifc"]
+
+[ext_resource type="Script" uid="uid://bdkgxuqj2e2wc" path="res://circulo_amarillo.gd" id="2_eq0hr"]
+
+[sub_resource type="GDScript" id="GDScript_3ou2n"]
+script/source = "extends Area2D
+
+@onready var dibujo_linea = $CirculoAmarillo # Asegúrate de que se llame así
+
+var escena_sonidos = preload(\"res://efectos_de_sonido.tscn\").instantiate()
+
+func _ready():
+	# Conectamos la señal por código para que no se te olvide en el editor
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node2D) -> void:
+
+	if body is RigidBody2D:
+		# 1. Calculamos dirección del rebote
+	
+		var sonido_temporal = escena_sonidos.get_node(\"Audio_Impulso\").duplicate()
+		get_parent().add_child(sonido_temporal)
+		sonido_temporal.play()
+		
+		# 3. Efecto visual para el Line2D (Feedback)
+		# Hacemos que la línea se ensanche un poco y vuelva a la normalidad
+		#var ancho_original = dibujo_linea.width
+		var ancho_original = 5
+		var tween = create_tween()
+		tween.tween_property(dibujo_linea, \"width\", ancho_original * 3, 0.1)
+		tween.tween_property(dibujo_linea, \"width\", ancho_original, 0.1)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eq0hr"]
+radius = 30.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3ou2n"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ou2n"]
+radius = 25.0
+
+[node name="Impulsador" type="Area2D" unique_id=381512144]
+z_index = 11
+script = SubResource("GDScript_3ou2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62188549]
+shape = SubResource("CircleShape2D_eq0hr")
+
+[node name="CirculoAmarillo" type="Line2D" parent="." unique_id=556228665]
+closed = true
+width = 5.0
+default_color = Color(1, 1, 0, 1)
+script = ExtResource("2_eq0hr")
+
+[node name="Ondas_Externas" type="Line2D" parent="CirculoAmarillo" unique_id=1752555812]
+closed = true
+width = 2.0
+default_color = Color(1, 1, 0, 1)
+
+[node name="Ondas_Internas" type="Line2D" parent="CirculoAmarillo" unique_id=2013920274]
+closed = true
+width = 2.0
+default_color = Color(1, 1, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=509243596]
+physics_material_override = SubResource("PhysicsMaterial_3ou2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1173624710]
+shape = SubResource("CircleShape2D_3ou2n")

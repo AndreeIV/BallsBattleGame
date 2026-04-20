@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://8d3qd07ojnw2"]
+
+[ext_resource type="AudioStream" uid="uid://b4bmtsnc74gxw" path="res://audios/impulso.mp3" id="1_7buhd"]
+[ext_resource type="AudioStream" uid="uid://dpevsp5ob5eow" path="res://audios/ReboteParedes.mp3" id="2_rr53h"]
+
+[node name="EfectosDeSonido" type="Node2D" unique_id=584173002]
+
+[node name="Audio_Impulso" type="AudioStreamPlayer2D" parent="." unique_id=1627213296]
+stream = ExtResource("1_7buhd")
+
+[node name="Audio_Rebote" type="AudioStreamPlayer2D" parent="." unique_id=1471553227]
+stream = ExtResource("2_rr53h")

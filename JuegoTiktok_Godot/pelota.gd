@@ -2,6 +2,8 @@ extends RigidBody2D  # 👈 O CharacterBody2D, según lo que elegiste
 
 var escena_efectos = preload("res://EfectosEspeciales.tscn")
 
+
+
 @onready var sprite = $Sprite2D
 @onready var colision = $CollisionShape2D
 @onready var label_node = $Label
@@ -28,7 +30,7 @@ var usuario = ''
 var atacante = 'El Vacío'
 
 func _ready() -> void:
-	
+	add_to_group("pelotas")
 	
 	actualizarVidaVisual()
 	body_entered.connect(_on_choque)
@@ -204,7 +206,7 @@ func actualizarVidaVisual():
 	
 	#Actualizamos la escala de las pelotas
 	if salud <= 3000:
-		var nueva_escala = escala_base + (salud / 1000.0)
+		var nueva_escala = escala_base + (salud / 2500.0)
 		var escala_final = Vector2(nueva_escala, nueva_escala)
 		
 		sprite.scale = escala_final
@@ -258,6 +260,22 @@ func crearEfectoChoque():
 	await get_tree().create_timer(1).timeout
 	contenedor.queue_free()
 	
+func AgregarFotoBots(url):
+	var http_node = HTTPRequest.new()
+	# Conectamos la señal para recibir la imagen
+	http_node.request_completed.connect(_al_descargar_foto)
+	# Pedimos la foto a internet
+	http_node.request(url)
+
+func _al_descargar_foto(_result, _response_code, _headers, body):
+	var imagen = Image.new()
+	var error = imagen.load_png_from_buffer(body)
+	
+	if error == OK:
+		var textura = ImageTexture.create_from_image(imagen)
+		sprite.texture = textura
+		# Ajustamos el tamaño para que quepa en la pelota
+		#foto_node.scale = Vector2(0.2, 0.2)
 
 func EfectoLikes():
 	var contenedor = escena_efectos.instantiate()

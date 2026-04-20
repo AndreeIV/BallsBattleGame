@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lvr81p4mu8y8" path="res://pelota.gd" id="1_sha3n"]
 [ext_resource type="Shader" uid="uid://uj45b6xwq53k" path="res://pelota.gdshader" id="2_0okw3"]
-[ext_resource type="AudioStream" uid="uid://dl4lsc6l53upw" path="res://audio_muerte.mp3" id="3_p7cd6"]
+[ext_resource type="AudioStream" uid="uid://dl4lsc6l53upw" path="res://audios/audio_muerte.mp3" id="3_p7cd6"]
 [ext_resource type="AudioStream" uid="uid://ciby3dsty1fid" path="res://audios/freesound_community-good-6081.mp3" id="4_mwsff"]
 [ext_resource type="Texture2D" uid="uid://c0ftfn7113c6n" path="res://imagenes/like-red.svg" id="5_dvj37"]
 

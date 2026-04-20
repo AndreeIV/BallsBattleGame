@@ -43,7 +43,8 @@ function enviarAGodot(evento, usuario, puntos, regalo = null, fotoUrl = "") {
 app.use(express.static('public'));
 
 let usuariosTiktok = [
-    'andree_iv',
+    "soyboa_",
+    'nisoje.tk',
     'm4uricho',
     'soyelmoiss',
     "daniaplaygame",
@@ -51,7 +52,10 @@ let usuariosTiktok = [
     'ellisproo',
     // "ernestogz_11",
     "alejandrodavid177",
-    "nocdtino", "josegnzl777", "alex.t_gamer", "arenitauwu", "luz_moom", "eway.dem", "felixstudiolive", "danny_kol", "dolldarki", "zlatartv", "stevenrata7", "langela89", "nelva.invest2","", "maw.en.sistemas", "alexiya369", "zacil.jimenez", "santusoy"]
+    "nocdtino",
+    "josegnzl777",
+    "alex.t_gamer",
+    "arenitauwu", "luz_moom", "eway.dem", "felixstudiolive", "danny_kol", "dolldarki", "zlatartv", "stevenrata7", "langela89", "nelva.invest2","", "maw.en.sistemas", "alexiya369", "zacil.jimenez", "santusoy"]
 let intentos = 0
 
 
