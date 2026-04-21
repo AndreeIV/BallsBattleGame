@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bn88n00eh7k6y"]
+
+[ext_resource type="Texture2D" uid="uid://ion1mj52ked0" path="res://imagenes/boost.png" id="1_dqe7g"]
+[ext_resource type="Script" uid="uid://c82ot8upfio50" path="res://area_2d_boost.gd" id="1_gdhh5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5iasl"]
+
+[node name="Area2D_Boost" type="Area2D" unique_id=1908173627]
+script = ExtResource("1_gdhh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=840662671]
+shape = SubResource("CircleShape2D_5iasl")
+disabled = true
+
+[node name="InterfazBoost" type="Control" parent="." unique_id=786145622]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="TextureRect" type="TextureRect" parent="InterfazBoost" unique_id=490218503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dqe7g")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

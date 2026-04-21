@@ -499,6 +499,7 @@ offset_right = 360.0
 offset_bottom = 44.0
 
 [node name="PantallaInicio" type="Control" parent="CanvasLayer" unique_id=470824005]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0

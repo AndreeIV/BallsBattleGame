@@ -2,6 +2,7 @@
 extends Node2D
 
 var escena_pelota = preload("res://pelota.tscn")
+var escena_boost = preload("res://area_2d_boost.tscn")
 
 
 @onready var musicaFondo = $CanvasLayer/PantallaInicio/MusicaFondo
@@ -131,6 +132,7 @@ func Iniciar_Conexion():
 			
 	cargar_datos()
 	actualizar_leaderboard()
+	Añadir_Boost_Mundo()
 	
 func actualizar_ui_tiempo():
 	# Actualizamos el valor visual de la barra
@@ -236,6 +238,8 @@ func mostrar_anuncio_ganador(usuario, foto):
 func _process(_delta):
 	
 	if not juego_iniciado or not temporizador_activo: return # Si el juego no ha sido iniciado no recibe peticiones
+	
+	
 
 	# Restamos el temporizador
 	tiempo_restante -= _delta
@@ -570,8 +574,28 @@ func _on_button_menu_burger_toggled(toggled_on: bool) -> void:
 
 func _on_button_musica_fondo_toggled(toggled_on: bool) -> void:
 	var musica = $CanvasLayer/PantallaInicio/MusicaFondo
+	var button = $CanvasLayer/PantallaInicio/Button_MusicaFondo
+	
 	if toggled_on:
 		musica.volume_db = -80.0
+		button.icon = preload("res://imagenes/volumen_desactivado.png")
 	else:
 		musica.volume_db = 0.0
+		button.icon = preload("res://imagenes/volumen_activado.png")
+		
 	pass # Replace with function body.
+
+
+func Añadir_Boost_Mundo():
+	var boost = escena_boost.instantiate()
+	
+	boost.position = Vector2(randf_range(100, 1820), randf_range(100, 980))
+	
+	ContenedorPelotas.add_child(boost)
+	
+	
+	await get_tree().create_timer(15.0).timeout
+	
+	if boost: boost.queue_free()
+	
+	Añadir_Boost_Mundo()

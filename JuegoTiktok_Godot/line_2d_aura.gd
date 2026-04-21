@@ -1,10 +1,11 @@
 extends Line2D
 
-@onready var onda_ext = $Ondas_Externas
-@onready var onda_int = $Ondas_Internas
+@onready var onda_ext = $Line2D_Exterior
+@onready var onda_int = $Line2D_Interior
 
-func _ready():
-	var radio = 25.0
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var radio = 28.0
 	var puntos = 64 # Cuantos más puntos, más redondo se verá
 	
 	
@@ -15,9 +16,8 @@ func _ready():
 		add_point(Vector2(x, y))
 		onda_ext.add_point(Vector2(x,y))
 		onda_int.add_point(Vector2(x,y))
-	
+		
 	iniciar_pulso_total()
-	
 
 
 func iniciar_pulso_total():
@@ -33,6 +33,3 @@ func iniciar_pulso_total():
 	# 2. Desvanecimiento: Ambas se vuelven transparentes
 	tween.parallel().tween_property(onda_ext, "modulate:a", 0.0, 1.2).from(0.6)
 	tween.parallel().tween_property(onda_int, "modulate:a", 0.0, 1.2).from(0.6)
-
-	# 3. Pequeño intervalo para el siguiente latido
-	#tween.tween_interval(0.05)

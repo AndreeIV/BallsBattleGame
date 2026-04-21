@@ -16,7 +16,7 @@ var escena_efectos = preload("res://EfectosEspeciales.tscn")
 signal pelotaMuerta(usuario, atacante)
 var poderes = [
 	{"name": "dañoAumentado", "valor": 10, "activo": false},
-	{"name": "velocidad", "valor": 3, "activo": false},
+	{"name": "velocidad", "valor": 5, "activo": false},
 	{"name": "instakill", "valor": 999999, "activo": false}
 ]
 # variables base
@@ -73,7 +73,7 @@ func ganar_vida(puntos, evento):
 			Activar_Instakill(puntos)
 		elif puntos == 5:
 			
-			Activar_Supervelocidad(puntos)
+			Activar_Supervelocidad()
 		else:
 			salud += puntos * 125
 			
@@ -104,12 +104,12 @@ func _integrate_forces(state):
 	# Forzamos a que la velocidad lineal sea SIEMPRE la velocidad_objetivo
 	state.linear_velocity = direccion * velocidad
 	
-func Activar_Supervelocidad(puntos):	
+func Activar_Supervelocidad():	
 	if poderes[1].activo == true: return
 	
-	velocidad = velocidad * puntos
+	velocidad = velocidad * poderes[1].valor
 	
-	print("👟 Supervelocidad Activado para el usuario: " + usuario + " | Puntos --> " + str(puntos))
+	print("👟 Supervelocidad Activado para el usuario: " + usuario + " | Puntos --> " + str(poderes[1].valor))
 	
 	# Opcional: Cambiar el color de la interfaz o el fondo para avisar en el stream
 	#$CanvasLayer/InterfazPrincipal/LabelPoder.text = "¡DAÑO X10 ACTIVO!"
@@ -292,3 +292,7 @@ func EfectoLikes():
 	
 	await get_tree().create_timer(1).timeout
 	contenedor.queue_free()
+
+
+func Obtener_Boost():
+	Activar_Supervelocidad()
