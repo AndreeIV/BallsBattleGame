@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://b5ayj1lo6wvf2"]
 
 [ext_resource type="Script" uid="uid://cpu5viufvgc1v" path="res://mundo.gd" id="1_6ba58"]
+[ext_resource type="Script" uid="uid://dofx6msflmbdd" path="res://area_2d_arriba.gd" id="2_5g5eo"]
 [ext_resource type="Texture2D" uid="uid://b43r2vyhyb7o4" path="res://imagenes/menu.png" id="3_2hh7m"]
-[ext_resource type="Script" uid="uid://dfgppnlq8tvgl" path="res://area_2d.gd" id="3_5g5eo"]
 [ext_resource type="AudioStream" uid="uid://drxvm232ueios" path="res://audios/Musica_PantallaInicio.mp3" id="3_pfhxm"]
+[ext_resource type="Script" uid="uid://chw2p54s40kvl" path="res://area_2d_izquierda.gd" id="4_lwdvv"]
 [ext_resource type="Texture2D" uid="uid://bl5q5lxor2w37" path="res://imagenes/fondo_pantallainicio.jpg" id="4_t8jxu"]
+[ext_resource type="Script" uid="uid://n123syu7vyoa" path="res://area_2d_derecha.gd" id="5_744hw"]
+[ext_resource type="Script" uid="uid://co844rl0s7it1" path="res://area_2d_abajo.gd" id="5_qobow"]
 [ext_resource type="Texture2D" uid="uid://b2jeutuqk3wy1" path="res://space-planet-science-night-generated-by-ai.jpg" id="6_5ckkb"]
 [ext_resource type="PackedScene" uid="uid://6n0sdvdm4ifc" path="res://impulsador.tscn" id="7_744hw"]
 [ext_resource type="Texture2D" uid="uid://up0812whv1uf" path="res://imagenes/icono-de-trofeo.png" id="8_0oi55"]
@@ -14,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c7uqv6ck86gb5" path="res://imagenes/barra_gris.png" id="10_0crsg"]
 [ext_resource type="Texture2D" uid="uid://ghkrs080sgo5" path="res://imagenes/barra_roja.png" id="11_5g5eo"]
 [ext_resource type="Script" uid="uid://cawn4tiixnile" path="res://v_box_container.gd" id="12_5g5eo"]
+[ext_resource type="Texture2D" uid="uid://b8x62i35mlww6" path="res://imagenes/volumen_activado.png" id="18_8wx08"]
 
 [sub_resource type="Environment" id="Environment_lwdvv"]
 background_mode = 3
@@ -25,16 +29,25 @@ glow_bloom = 0.08
 glow_hdr_threshold = 0.35
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0crsg"]
-size = Vector2(1920, 111)
+size = Vector2(1920, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
 size = Vector2(1920, 65)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g5eo"]
+size = Vector2(80, 1080)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
 size = Vector2(65, 1080)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_744hw"]
+size = Vector2(80, 1080)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]
 size = Vector2(65, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wx08"]
+size = Vector2(1920, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oi55"]
 size = Vector2(1920, 65)
@@ -69,6 +82,12 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2eq6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hui5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxlx8"]
+
 [node name="Mundo" type="Node2D" unique_id=1490623062]
 script = ExtResource("1_6ba58")
 
@@ -92,38 +111,61 @@ grow_vertical = 2
 [node name="Paredes" type="Node2D" parent="CanvasLayer/InterfazPrincipal" unique_id=1387935526]
 z_index = -1
 
-[node name="Area2D" type="Area2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=371827446]
-script = ExtResource("3_5g5eo")
+[node name="Area2D_Arriba" type="Area2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=371827446]
+script = ExtResource("2_5g5eo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D" unique_id=1499846046]
-position = Vector2(960, 20.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Arriba" unique_id=1499846046]
+position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_0crsg")
 
-[node name="Pared_arriba" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D" unique_id=1335279860]
+[node name="Pared_arriba" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Arriba" unique_id=1335279860]
 z_index = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D/Pared_arriba" unique_id=1182801527]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Arriba/Pared_arriba" unique_id=1182801527]
 position = Vector2(962, 0)
 shape = SubResource("RectangleShape2D_lgngo")
 
-[node name="Pared_izquierda" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=1236157392]
+[node name="Area2D_Izquierda" type="Area2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=741520211]
+script = ExtResource("4_lwdvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Izquierda" unique_id=1714226162]
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_5g5eo")
+
+[node name="Pared_izquierda" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Izquierda" unique_id=1236157392]
 z_index = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_izquierda" unique_id=479183755]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Izquierda/Pared_izquierda" unique_id=479183755]
 position = Vector2(0, 540)
 shape = SubResource("RectangleShape2D_wtcfe")
 
-[node name="Pared_Derecha" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=2089979665]
+[node name="Area2D_Derecha" type="Area2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=705456813]
+script = ExtResource("5_744hw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Derecha" unique_id=1160772405]
+position = Vector2(1920, 540)
+shape = SubResource("RectangleShape2D_744hw")
+
+[node name="Pared_Derecha" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Derecha" unique_id=2089979665]
 z_index = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_Derecha" unique_id=1058990333]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Derecha/Pared_Derecha" unique_id=1058990333]
 position = Vector2(1920, 540)
 shape = SubResource("RectangleShape2D_fw4w5")
 
-[node name="Pared_abajo" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=706452500]
-z_index = 5
+[node name="Area2D_Abajo" type="Area2D" parent="CanvasLayer/InterfazPrincipal/Paredes" unique_id=5859828]
+position = Vector2(1, 0)
+script = ExtResource("5_qobow")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Pared_abajo" unique_id=2137599995]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Abajo" unique_id=1346958476]
+position = Vector2(960, 1080)
+shape = SubResource("RectangleShape2D_8wx08")
+
+[node name="Pared_abajo" type="StaticBody2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Abajo" unique_id=706452500]
+z_index = 5
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Abajo/Pared_abajo" unique_id=2137599995]
 position = Vector2(960, 1080)
 shape = SubResource("RectangleShape2D_0oi55")
 
@@ -457,14 +499,11 @@ offset_right = 360.0
 offset_bottom = 44.0
 
 [node name="PantallaInicio" type="Control" parent="CanvasLayer" unique_id=470824005]
-visible = false
 z_index = 1
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PantallaInicio" unique_id=51847044]
 z_index = -1
@@ -563,6 +602,21 @@ text = "Establecer Conexión"
 layout_mode = 2
 text = "Volver Inicio"
 
+[node name="Button_MusicaFondo" type="Button" parent="CanvasLayer/PantallaInicio" unique_id=1198173529]
+layout_mode = 0
+offset_left = 1772.0
+offset_top = 48.0
+offset_right = 1872.0
+offset_bottom = 148.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j2eq6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0hui5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sxlx8")
+toggle_mode = true
+icon = ExtResource("18_8wx08")
+icon_alignment = 1
+expand_icon = true
+
 [node name="BannerKills" type="CanvasLayer" parent="." unique_id=171210484]
 
 [node name="KillFeed" type="VBoxContainer" parent="BannerKills" unique_id=1094315863]
@@ -576,7 +630,10 @@ offset_bottom = 40.0
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[connection signal="body_entered" from="CanvasLayer/InterfazPrincipal/Paredes/Area2D" to="CanvasLayer/InterfazPrincipal/Paredes/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Arriba" to="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Arriba" method="_on_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Izquierda" to="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Izquierda" method="_on_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Derecha" to="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Derecha" method="_on_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Abajo" to="CanvasLayer/InterfazPrincipal/Paredes/Area2D_Abajo" method="_on_body_entered"]
 [connection signal="toggled" from="CanvasLayer/InterfazPrincipal/Button_MenuBurger" to="." method="_on_button_menu_burger_toggled"]
 [connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_NuevaPartida" to="." method="_on_button_nueva_partida_pressed"]
 [connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_AdminAbuse" to="." method="_on_button_admin_abuse_pressed"]
@@ -591,3 +648,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="finished" from="CanvasLayer/PantallaInicio/MusicaFondo" to="." method="_on_musica_fondo_finished"]
 [connection signal="pressed" from="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer/Button_EstablecerConexion" to="." method="_on_button_establecer_conexion_pressed"]
 [connection signal="pressed" from="CanvasLayer/PantallaInicio/Menu_EstablecerConexion/Panel/VBoxContainer/Button_VolverInicio" to="." method="_on_button_volver_inicio_pressed"]
+[connection signal="toggled" from="CanvasLayer/PantallaInicio/Button_MusicaFondo" to="." method="_on_button_musica_fondo_toggled"]

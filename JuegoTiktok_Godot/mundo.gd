@@ -566,3 +566,12 @@ func _on_button_menu_burger_toggled(toggled_on: bool) -> void:
 		$CanvasLayer/InterfazPrincipal/MenuPartida.visible = true
 	else:
 		$CanvasLayer/InterfazPrincipal/MenuPartida.visible = false
+
+
+func _on_button_musica_fondo_toggled(toggled_on: bool) -> void:
+	var musica = $CanvasLayer/PantallaInicio/MusicaFondo
+	if toggled_on:
+		musica.volume_db = -80.0
+	else:
+		musica.volume_db = 0.0
+	pass # Replace with function body.

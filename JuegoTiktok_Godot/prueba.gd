@@ -3,6 +3,7 @@ extends Line2D
 @onready var onda_ext = $Ondas_Externas
 @onready var onda_int = $Ondas_Internas
 
+var escena_sonidos = preload("res://efectos_de_sonido.tscn")
 
 
 
@@ -33,14 +34,18 @@ func _ready() -> void:
 	iniciar_pulso_total()
 	
 func reaccionar_choque():
+	
+	var sonido_temporal = escena_sonidos.instantiate().get_node("Audio_Rebote").duplicate()
+	get_parent().add_child(sonido_temporal)
+	sonido_temporal.play()
 	# 1. Creamos el objeto de animación
 	var tween = create_tween()
 	
 	# 2. Le decimos: "Cambia el 'width' a 25 en 0.1 segundos"
-	tween.tween_property(self, "width", 25.0, 0.1)
+	tween.tween_property(self, "width", 10.0, 0.1)
 	
 	# 3. Luego: "Regresa el 'width' a 8 (o tu tamaño original) en 0.2 segundos"
-	tween.tween_property(self, "width", 8.0, 0.2)
+	tween.tween_property(self, "width", 5.0, 0.2)
 
 
 
