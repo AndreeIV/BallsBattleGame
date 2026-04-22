@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	
-	if body is RigidBody2D:
-		
+	if body is RigidBody2D and body.name.contains("Bot"):
+		print(body)
 		body.Obtener_Boost()
 		queue_free()
 	else:

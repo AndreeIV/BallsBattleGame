@@ -1,8 +1,10 @@
 # Script actualizado para mundo.gd
 extends Node2D
 
+# VARIABLES ESCENAS
 var escena_pelota = preload("res://pelota.tscn")
 var escena_boost = preload("res://area_2d_boost.tscn")
+var escena_boss = preload("res://rigid_body_2d_boss.tscn")
 
 
 @onready var musicaFondo = $CanvasLayer/PantallaInicio/MusicaFondo
@@ -599,3 +601,13 @@ func Añadir_Boost_Mundo():
 	if boost: boost.queue_free()
 	
 	Añadir_Boost_Mundo()
+
+
+func _on_button_add_boss_pressed() -> void:
+	
+	var boss = escena_boss.instantiate()
+	
+	var bossPosition = Vector2(960, 270)
+	boss.position = bossPosition
+	
+	ContenedorPelotas.add_child(boss)

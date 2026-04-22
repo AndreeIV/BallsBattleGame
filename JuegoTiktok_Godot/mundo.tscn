@@ -393,14 +393,18 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Escudo"
 
+[node name="Button_CrearBot" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=351219048]
+layout_mode = 2
+text = "Crear Bot"
+
 [node name="Button_Volver" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=415090926]
 layout_mode = 2
 text = "Volver
 "
 
-[node name="Button_CrearBot" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=351219048]
+[node name="Button_AddBoss" type="Button" parent="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer" unique_id=1980435830]
 layout_mode = 2
-text = "Crear Bot"
+text = "Add Boss"
 
 [node name="MenuTops" type="Control" parent="CanvasLayer/InterfazPrincipal" unique_id=196559345]
 z_index = 15
@@ -640,8 +644,9 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_AdminAbuse" to="." method="_on_button_admin_abuse_pressed"]
 [connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_RegresarInicio" to="." method="_on_button_regresar_inicio_pressed"]
 [connection signal="pressed" from="CanvasLayer/InterfazPrincipal/MenuPartida/Panel/VBoxContainer/Button_SalirMenu" to="." method="_on_button_salir_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer/Button_Volver" to="." method="_on_button_volver_pressed"]
 [connection signal="pressed" from="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer/Button_CrearBot" to="." method="_on_button_crear_bot_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer/Button_Volver" to="." method="_on_button_volver_pressed"]
+[connection signal="pressed" from="CanvasLayer/InterfazPrincipal/AdminAbuse/Panel/VBoxContainer/Button_AddBoss" to="." method="_on_button_add_boss_pressed"]
 [connection signal="toggled" from="CanvasLayer/InterfazPrincipal/MenuTops/Button_TopGlobal" to="." method="_on_button_top_global_toggled"]
 [connection signal="pressed" from="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/PantallaInicio/TextureRect/VBoxContainer/Button_Configuracion" to="." method="_on_button_configuracion_pressed"]

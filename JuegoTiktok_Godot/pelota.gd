@@ -46,12 +46,12 @@ func Datos_Mundo(data):
 func _on_choque(body):
 	if body.has_method("perder_vida"):
 		# Ambas pierden vida al chocar
-		if "usuario" in body:
+		#if "usuario" in body:
 		
 			
 			
-			body.atacante = usuario
-			body.perder_vida(daño)
+		#body.atacante = usuario
+		body.perder_vida(daño)
 			
 			#print(atacante + " Con Daño --> " + str(body.daño))
 			#print(usuario + " Con Daño --> " + str(daño))
