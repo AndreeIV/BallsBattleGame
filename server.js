@@ -43,6 +43,7 @@ function enviarAGodot(evento, usuario, puntos, regalo = null, fotoUrl = "") {
 app.use(express.static('public'));
 
 let usuariosTiktok = [
+    "andree_iv",
     "soyboa_",
     'nisoje.tk',
     'm4uricho',

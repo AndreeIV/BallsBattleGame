@@ -387,13 +387,13 @@ func Crear_Bot():
 	
 	bot.pelotaMuerta.connect(_on_registrar_kill)
 	bot.apply_central_impulse(fuerza_inicial)
-	
-	ContenedorPelotas.add_child(bot)
-	
 	var url_imagen = "https://robohash.org/" + str(Indice_NombreBot)
 	
-	bot.AgregarFotoBots(url_imagen)
 	print('Se agregó al mundo ' + bot.name)
+	
+	bot.AgregarFotoBots("https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/ed9f8a77f7d99be4ff1722e2a3811311~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=420e07f6&x-expires=1776999600&x-signature=f4hxmmlYrWMPBJj8txNUYuKJYXs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my")
+	ContenedorPelotas.add_child(bot)
+	
 	
 	Indice_NombreBot += 1
 	

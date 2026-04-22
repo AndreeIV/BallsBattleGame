@@ -25,14 +25,10 @@ func iniciar_pulso_total():
 	# Creamos un loop infinito para el pulso
 	var tween = create_tween().set_loops()
 	
-	# --- Animación de las Ondas ---
-	# 1. Escala: La onda externa crece, la interna se achica
+
 	tween.parallel().tween_property(onda_ext, "scale", Vector2(1.5, 1.5), 1.2).from(Vector2(1.0, 1.0))
 	tween.parallel().tween_property(onda_int, "scale", Vector2(0.5, 0.5), 1.2).from(Vector2(1.0, 1.0))
 	
-	# 2. Desvanecimiento: Ambas se vuelven transparentes
+
 	tween.parallel().tween_property(onda_ext, "modulate:a", 0.0, 1.2).from(0.6)
 	tween.parallel().tween_property(onda_int, "modulate:a", 0.0, 1.2).from(0.6)
-
-	# 3. Pequeño intervalo para el siguiente latido
-	#tween.tween_interval(0.05)

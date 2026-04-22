@@ -6,5 +6,5 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_body_entered(body: Node2D) -> void:
-	if body:
+	if body is RigidBody2D:
 		get_tree().call_group("bordes_arena", "reaccionar_choque")

@@ -9,26 +9,26 @@ script/source = "extends Area2D
 
 var escena_sonidos = preload(\"res://efectos_de_sonido.tscn\").instantiate()
 
-func _ready():
-	 #Conectamos la señal por código para que no se te olvide en el editor
-	body_entered.connect(_on_body_entered)
+#func _ready():
+	# Conectamos la señal por código para que no se te olvide en el editor
+	#body_entered.connect(_on_body_entered)
 
-func _on_body_entered(body: Node2D) -> void:
-
-	if body is RigidBody2D:
-		# 1. Calculamos dirección del rebote
-	
-		var sonido_temporal = escena_sonidos.get_node(\"Audio_Impulso\").duplicate()
-		get_parent().add_child(sonido_temporal)
-		sonido_temporal.play()
-		
-		# 3. Efecto visual para el Line2D (Feedback)
-		# Hacemos que la línea se ensanche un poco y vuelva a la normalidad
-		#var ancho_original = dibujo_linea.width
-		var ancho_original = 5
-		var tween = create_tween()
-		tween.tween_property(dibujo_linea, \"width\", ancho_original * 3, 0.1)
-		tween.tween_property(dibujo_linea, \"width\", ancho_original, 0.1)
+#func _on_body_entered(body: Node2D) -> void:
+#
+	#if body is RigidBody2D:
+		## 1. Calculamos dirección del rebote
+	#
+		#var sonido_temporal = escena_sonidos.get_node(\"Audio_Impulso\").duplicate()
+		#get_parent().add_child(sonido_temporal)
+		#sonido_temporal.play()
+		#
+		## 3. Efecto visual para el Line2D (Feedback)
+		## Hacemos que la línea se ensanche un poco y vuelva a la normalidad
+		##var ancho_original = dibujo_linea.width
+		#var ancho_original = 5
+		#var tween = create_tween()
+		#tween.tween_property(dibujo_linea, \"width\", ancho_original * 3, 0.1)
+		#tween.tween_property(dibujo_linea, \"width\", ancho_original, 0.1)
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eq0hr"]

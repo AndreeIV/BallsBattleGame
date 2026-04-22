@@ -9,9 +9,9 @@ script/source = "extends Area2D
 
 var escena_sonidos = preload(\"res://efectos_de_sonido.tscn\").instantiate()
 
-func _ready():
-	 #Conectamos la señal por código para que no se te olvide en el editor
-	body_entered.connect(_on_body_entered)
+#func _ready():
+	# Conectamos la señal por código para que no se te olvide en el editor
+	#body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 

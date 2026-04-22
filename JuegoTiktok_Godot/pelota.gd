@@ -18,6 +18,7 @@ var poderes = [
 	{"name": "dañoAumentado", "valor": 10, "activo": false},
 	{"name": "velocidad", "valor": 5, "activo": false},
 	{"name": "instakill", "valor": 999999, "activo": false}
+
 ]
 # variables base
 var salud = 0
@@ -261,21 +262,24 @@ func crearEfectoChoque():
 	contenedor.queue_free()
 	
 func AgregarFotoBots(url):
-	var http_node = HTTPRequest.new()
-	# Conectamos la señal para recibir la imagen
-	http_node.request_completed.connect(_al_descargar_foto)
-	# Pedimos la foto a internet
-	http_node.request(url)
-
-func _al_descargar_foto(_result, _response_code, _headers, body):
-	var imagen = Image.new()
-	var error = imagen.load_png_from_buffer(body)
+	if url == "": return
 	
-	if error == OK:
-		var textura = ImageTexture.create_from_image(imagen)
-		sprite.texture = textura
-		# Ajustamos el tamaño para que quepa en la pelota
-		#foto_node.scale = Vector2(0.2, 0.2)
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.request_completed.connect(_al_descargar_foto)
+	http_request.request(url)
+
+func _al_descargar_foto(result, response_code, _headers, body):
+	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200: return
+	
+	var image = Image.new()
+	var error = image.load_webp_from_buffer(body)
+	
+	if error != OK: image.load_jpg_from_buffer(body)
+	
+	var texture = ImageTexture.create_from_image(image)
+	
+	sprite.texture = texture
 
 func EfectoLikes():
 	var contenedor = escena_efectos.instantiate()
@@ -295,4 +299,15 @@ func EfectoLikes():
 
 
 func Obtener_Boost():
-	Activar_Supervelocidad()
+	if poderes[1].activo == true: return
+	
+	velocidad = velocidad * poderes[1].valor
+	
+	print("👟 Supervelocidad Activado para el usuario: " + usuario + " | Puntos --> " + str(poderes[1].valor))
+	
+	# Opcional: Cambiar el color de la interfaz o el fondo para avisar en el stream
+	#$CanvasLayer/InterfazPrincipal/LabelPoder.text = "¡DAÑO X10 ACTIVO!"
+	poderes[1].activo = true
+	# Opcional: Hacer que dure solo 15 segundos
+	await get_tree().create_timer(5.0).timeout
+	Desactivar_Supervelocidad()

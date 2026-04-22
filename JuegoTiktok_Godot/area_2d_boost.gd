@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body is RigidBody2D:
 		
-		body.Activar_Supervelocidad()
+		body.Obtener_Boost()
 		queue_free()
 	else:
 		queue_free()
